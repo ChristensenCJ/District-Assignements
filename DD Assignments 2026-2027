@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District Deputy Assignments 2026-2027</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+        --primary: #1a2c4e;
+        --secondary: #c5a059;
+        --bg-light: #f8f9fa;
+        --text-main: #333;
+        --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --card-hover: 0 10px 15px rgba(0, 0, 0, 0.15);
+        --northern-primary: #2c5f8d;
+        --northern-accent: #5ba3d0;
+        --northern-light: #e8f4f8;
+        --central-primary: #2d5016;
+        --central-accent: #6b9b37;
+        --central-light: #f0f7e8;
+        --southern-primary: #7d1e3f;
+        --southern-accent: #c5536b;
+        --southern-light: #fef0f3;
+      }
+      body {
+        font-family: 'Lato', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-main);
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: linear-gradient(135deg, var(--primary) 0%, #0d1626 100%);
+        color: white;
+        padding: 2.5rem 1rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+      header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--secondary);
+      }
+      h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .subtitle {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .region-section {
+        margin-bottom: 3rem;
+      }
+      .region-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+      .region-title h2 {
+        font-family: 'Playfair Display', serif;
+        color: var(--primary);
+        background-color: var(--bg-light);
+        padding: 0 20px;
+        z-index: 1;
+        margin: 0;
+        font-size: 2rem;
+      }
+      .region-title::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, var(--secondary), transparent);
+        top: 50%;
+        z-index: 0;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+      .card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 4px solid var(--secondary);
+        height: auto;
+        display: flex;
+        flex-direction: column;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--card-hover);
+      }
+      .card-header {
+        background-color: #fff;
+        padding: 0.85rem 1rem 0.65rem;
+        border-bottom: 1px solid #eee;
+      }
+      .district-badge {
+        background-color: var(--primary);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
+      .rep-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.25rem;
+        color: var(--primary);
+        margin: 0.4rem 0 0.2rem;
+      }
+      .rep-email {
+        font-size: 0.85rem;
+        color: #666;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: color 0.2s;
+      }
+      .rep-email:hover {
+        color: var(--secondary);
+      }
+      .card-body {
+        padding: 0.75rem 1rem 1rem;
+        flex-grow: 0;
+      }
+      .lodges-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: #888;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+      .lodge-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .lodge-list li {
+        padding: 0.25rem 0;
+        border-bottom: 1px solid #f5f5f5;
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      .lodge-list li:last-child {
+        border-bottom: none;
+      }
+      .lodge-list li::before {
+        content: '•';
+        color: var(--secondary);
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      footer {
+        background-color: var(--primary);
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 3rem;
+        font-size: 0.85rem;
+      }
+      footer p {
+        margin: 0;
+      }
+      .northern-region .region-title h2 {
+        color: var(--northern-primary);
+      }
+      .northern-region .region-title::after {
+        background: linear-gradient(to right, transparent, var(--northern-accent), transparent);
+      }
+      .northern-region .card {
+        border-top: 4px solid var(--northern-accent);
+        background: linear-gradient(to bottom, var(--northern-light) 0%, white 100px);
+      }
+      .northern-region .district-badge {
+        background-color: var(--northern-primary);
+      }
+      .northern-region .rep-name {
+        color: var(--northern-primary);
+      }
+      .northern-region .rep-email:hover {
+        color: var(--northern-accent);
+      }
+      .northern-region .lodge-list li::before {
+        color: var(--northern-accent);
+      }
+      .central-region .region-title h2 {
+        color: var(--central-primary);
+      }
+      .central-region .region-title::after {
+        background: linear-gradient(to right, transparent, var(--central-accent), transparent);
+      }
+      .central-region .card {
+        border-top: 4px solid var(--central-accent);
+        background: linear-gradient(to bottom, var(--central-light) 0%, white 100px);
+      }
+      .central-region .district-badge {
+        background-color: var(--central-primary);
+      }
+      .central-region .rep-name {
+        color: var(--central-primary);
+      }
+      .central-region .rep-email:hover {
+        color: var(--central-accent);
+      }
+      .central-region .lodge-list li::before {
+        color: var(--central-accent);
+      }
+      .southern-region .region-title h2 {
+        color: var(--southern-primary);
+      }
+      .southern-region .region-title::after {
+        background: linear-gradient(to right, transparent, var(--southern-accent), transparent);
+      }
+      .southern-region .card {
+        border-top: 4px solid var(--southern-accent);
+        background: linear-gradient(to bottom, var(--southern-light) 0%, white 100px);
+      }
+      .southern-region .district-badge {
+        background-color: var(--southern-primary);
+      }
+      .southern-region .rep-name {
+        color: var(--southern-primary);
+      }
+      .southern-region .rep-email:hover {
+        color: var(--southern-accent);
+      }
+      .southern-region .lodge-list li::before {
+        color: var(--southern-accent);
+      }
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .grid {
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        }
+      }
+      @media (min-width: 1025px) {
+        .grid {
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>District Deputy Assignments</h1>
+        <div class="subtitle">2026 - 2027</div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="region-section northern-region">
+        <div class="region-title">
+          <h2>Northern Region</h2>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 1</span>
+              <h3 class="rep-name">Matt Curry</h3>
+              <a href="mailto:curry_matthew@hotmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> curry_matthew@hotmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Crookston 141</li>
+                <li>Northern 236</li>
+                <li>Roseau 268</li>
+                <li>Stephen 279</li>
+                <li>Red River 292</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 2</span>
+              <h3 class="rep-name">Scott Giannone</h3>
+              <a href="mailto:scott.giannone@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> scott.giannone@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Mt. Tabor 106</li>
+                <li>Moorhead 126</li>
+                <li>Corner Stone 99</li>
+                <li>Perham 157</li>
+                <li>Otter Tail 284</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 3</span>
+              <h3 class="rep-name">Chris Glassmann</h3>
+              <a href="mailto:c.glassman3386@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> c.glassman3386@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Aurora 100</li>
+                <li>Shell 184</li>
+                <li>Itasca 208</li>
+                <li>Mystic 213</li>
+                <li>Bemidji 233</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 4</span>
+              <h3 class="rep-name">Brian Freseman</h3>
+              <a href="mailto:brianfreseman@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> brianfreseman@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Ionic 186</li>
+                <li>Fortitude 188</li>
+                <li>Glen Avon 306</li>
+                <li>Taconite 342</li>
+                <li>Euclid 198</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 5</span>
+              <h3 class="rep-name">Mike St John</h3>
+              <a href="mailto:mike_stjohn@msn.com" class="rep-email">
+                <i class="far fa-envelope"></i> mike_stjohn@msn.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Dalles 181</li>
+                <li>Trinity 282</li>
+                <li>Solomon's 286</li>
+                <li>Jasper 164</li>
+                <li>Mora 233</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 6</span>
+              <h3 class="rep-name">James Helms</h3>
+              <a href="mailto:dochelms@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> dochelms@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Eveleth 239</li>
+                <li>Mesaba 255</li>
+                <li>Koochiching 270</li>
+                <li>Biwabik 293</li>
+                <li>Nashwauk 331</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="region-section central-region">
+        <div class="region-title">
+          <h2>Central Region</h2>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 7</span>
+              <h3 class="rep-name">Terry Miller</h3>
+              <a href="mailto:tcmiller64@hotmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> tcmiller64@hotmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Constellation 81</li>
+                <li>Golden Sheaf 133</li>
+                <li>Traverse 189</li>
+                <li>Golden Fleece 89</li>
+                <li>Sharon 104</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 8</span>
+              <h3 class="rep-name">Todd Mayer</h3>
+              <a href="mailto:jeditodd@comcast.net" class="rep-email">
+                <i class="far fa-envelope"></i> jeditodd@comcast.net
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Fraternal 92</li>
+                <li>Helios 273</li>
+                <li>Monticello 16</li>
+                <li>North Star 23</li>
+                <li>Clearwater 28</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 9</span>
+              <h3 class="rep-name">Hunter Pettit</h3>
+              <a href="mailto:hunternewportlodge118@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> hunternewportlodge118@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Star 62</li>
+                <li>Nelson 135</li>
+                <li>Excelsior 113</li>
+                <li>Wayzata 205</li>
+                <li>Mound 320</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 10</span>
+              <h3 class="rep-name">Arun Natarajan</h3>
+              <a href="mailto:arun26.2@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> arun26.2@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Plymouth 160</li>
+                <li>Anoka 30</li>
+                <li>Sherburne 95</li>
+                <li>NE-Winslow Lewis 125</li>
+                <li>Compass 265</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 11</span>
+              <h3 class="rep-name">Larry Stelmach</h3>
+              <a href="mailto:stellemacher@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> stellemacher@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Cataract 2</li>
+                <li>Minnehaha 165</li>
+                <li>Braden 168</li>
+                <li>Minn. River Valley 6</li>
+                <li>Lebanon 346</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 12</span>
+              <h3 class="rep-name">Brad Everling</h3>
+              <a href="mailto:bweverling@protonmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> bweverling@protonmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>St. Paul 3</li>
+                <li>Hector 158</li>
+                <li>Unizar 347</li>
+                <li>Arcana 187</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 13</span>
+              <h3 class="rep-name">James Surrat</h3>
+              <a href="mailto:josurratt1969@yahoo.com" class="rep-email">
+                <i class="far fa-envelope"></i> josurratt1969@yahoo.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Templar 176</li>
+                <li>Lake Harriet 277</li>
+                <li>Sir Winston Churchill 351</li>
+                <li>Minneapolis 19</li>
+                <li>Cass 243</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 14</span>
+              <h3 class="rep-name">Adam Martin</h3>
+              <a href="mailto:adam.martin.glmn@pm.me" class="rep-email">
+                <i class="far fa-envelope"></i> adam.martin.glmn@pm.me
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Tusler-Summit 263</li>
+                <li>Ancient Landmark 5</li>
+                <li>Montgomery 258</li>
+                <li>Macalester 290</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 15</span>
+              <h3 class="rep-name">Bill Schoonover</h3>
+              <a href="mailto:bill.r.schoonover@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> bill.r.schoonover@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Accacia 51</li>
+                <li>Newport 118</li>
+                <li>Mizpah 191</li>
+                <li>Dakota 7</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 16</span>
+              <h3 class="rep-name">Lloyd Cheney</h3>
+              <a href="mailto:lloydcheney@icloud.com" class="rep-email">
+                <i class="far fa-envelope"></i> lloydcheney@icloud.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Garnet 166</li>
+                <li>Hiram 287</li>
+                <li>Forest Lake 344</li>
+                <li>Daylight 348</li>
+                <li>St. Johns 1</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="region-section southern-region">
+        <div class="region-title">
+          <h2>Southern Region</h2>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 17</span>
+              <h3 class="rep-name">Derrick Fountain</h3>
+              <a href="mailto:hello@derrickfountain.com" class="rep-email">
+                <i class="far fa-envelope"></i> hello@derrickfountain.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Mankato 12</li>
+                <li>Nicollet 54</li>
+                <li>Sibley 209</li>
+                <li>Temple 59</li>
+                <li>Waconia 326</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 18</span>
+              <h3 class="rep-name">Justin Kemp</h3>
+              <a href="mailto:justin.kemp615@yahoo.com" class="rep-email">
+                <i class="far fa-envelope"></i> justin.kemp615@yahoo.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Fraternity Lodge 101</li>
+                <li>Ben Franklin Lodge 114</li>
+                <li>Lake Wilson 262</li>
+                <li>Tracy Lodge 155</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 19</span>
+              <h3 class="rep-name">Chad Gruis</h3>
+              <a href="mailto:chadgruis1@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> chadgruis1@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Fides 246</li>
+                <li>Delta 119</li>
+                <li>Murray 199</li>
+                <li>Chain Lake 64</li>
+                <li>Prudence 97</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 20</span>
+              <h3 class="rep-name">Rick Vance</h3>
+              <a href="mailto:rickvance1@outlook.com" class="rep-email">
+                <i class="far fa-envelope"></i> rickvance1@outlook.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Red Wing 8</li>
+                <li>Oriental 34</li>
+                <li>Social 48</li>
+                <li>Corinthian 67</li>
+                <li>Carnelian 40</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 21</span>
+              <h3 class="rep-name">Greg Louis</h3>
+              <a href="mailto:gdlouisjr@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> gdlouisjr@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Faribault 9</li>
+                <li>Western Star 26</li>
+                <li>Star in the East 33</li>
+                <li>Fidelity 39</li>
+                <li>Tuscan 77</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 22</span>
+              <h3 class="rep-name">Roger Berge</h3>
+              <a href="mailto:rberge2@yahoo.com" class="rep-email">
+                <i class="far fa-envelope"></i> rberge2@yahoo.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Rochester 21</li>
+                <li>Pleasant Grove 22</li>
+                <li>Meridian 25</li>
+                <li>Rising Sun 49</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header">
+              <span class="district-badge">District 23</span>
+              <h3 class="rep-name">Thomas Hill</h3>
+              <a href="mailto:tomqhill@gmail.com" class="rep-email">
+                <i class="far fa-envelope"></i> tomqhill@gmail.com
+              </a>
+            </div>
+            <div class="card-body">
+              <div class="lodges-title">Assigned Lodges</div>
+              <ul class="lodge-list">
+                <li>Winona 18</li>
+                <li>Caledonia 20</li>
+                <li>Mystic Star 69</li>
+                <li>Orient 84</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <p>© 2026 District Deputy Assignments. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
